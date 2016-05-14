@@ -5,6 +5,7 @@
 # VERSION : 1.0
 ###########################################################
 # ERROR REPORTING ALL
+Rename-Computer AWSAD11 -restart
 Set-StrictMode -Version latest
 #Import PowerShell Module 
 Try
