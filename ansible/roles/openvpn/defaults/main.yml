@@ -1,0 +1,43 @@
+---
+ubuntu_openvpn_pkgs:
+  - openvpn
+  - iptables-persistent
+  - udev
+  - dnsmasq
+openvpn_key_country: "UK"
+openvpn_key_province: "England"
+openvpn_key_city: "London"
+openvpn_key_org: "Travelex"
+openvpn_key_ou: "DevOps Team"
+openvpn_days_valid: "1825" # Number of days you want to keep the certificate as valid
+openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
+openvpn_cipher: "AES-256-CBC"
+openvpn_key_size: "2048"
+openvpn_auth_digest: "SHA256"
+openvpn_path: "/etc/openvpn"
+openvpn_ca: "{{ openvpn_path }}/ca"
+openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
+openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
+openvpn_server: "test.local"
+openvpn_port: "443"
+openvpn_protocol: "tcp"
+# It assume that the subnet mask is /24
+openvpn_network: "172.18.0.0"
+# Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
+secure_servers:
+  - "jenkins.dev-cluster.digital.travelex.net"
+#  - 54.154.42.13
+#  - def.example.com\
+
+# OPENVPN rules for iptables
+iptables_openvpn_rules:
+  - /sbin/iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+  - /sbin/iptables -A FORWARD -s {{ openvpn_network }}/24 -j ACCEPT
+  - /sbin/iptables -A FORWARD -j REJECT
+  - /sbin/iptables -t nat -A POSTROUTING -s {{ openvpn_network }}/24 -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
+
+# Please mentioned the clients' name at this location
+openvpn_clients:
+  - TomK
+  - JenkinsS
+  - SteveK
