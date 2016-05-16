@@ -27,7 +27,7 @@ Catch
     Write-Host "[ERROR] Couldn't be install feature. Script will stop!"
 }
 #Input Domain Name
-$dcname = "Digital.travelex.net"
+$dcname = "Digitalday.LAB.net"
 $netbios = "Digital"
 $SecurePassword = "P@ssw0rd" | ConvertTo-SecureString -AsPlainText -Force
 #Install AD-DS role
