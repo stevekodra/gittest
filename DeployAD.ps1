@@ -8,6 +8,11 @@
 #Rename-Computer AWSAD11 -restart
 Set-ExecutionPolicy Unrestricted -Force
 Set-StrictMode -Version latest
+
+
+#Set an StaticIP to the server 
+
+
 #Import PowerShell Module 
 Try
 {
@@ -36,3 +41,4 @@ $SecurePassword = "P@ssw0rd" | ConvertTo-SecureString -AsPlainText -Force
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -Verbose -ErrorAction SilentlyContinue
 #Create forest and install ad dc,dns
 Install-ADDSForest -domainname $dcname -DomainMode Win2012R2 -ForestMode Win2012R2  -InstallDns:$true -DomainNetbiosName $netbios -SafeModeAdministratorPassword $SecurePassword  -NoRebootOnCompletion:$false -Force
+Rename-Computer AWSAD01 -restart
