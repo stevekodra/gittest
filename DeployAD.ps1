@@ -1,16 +1,33 @@
 ﻿###########################################################
-# AUTHOR  : seve kodra
+# AUTHOR  : Steve kodra
 # DATE    : 25-02-2015 
 # COMMENT : This script install Active Directory role
 # VERSION : 1.0
 ###########################################################
 #ERROR REPORTING ALL
-#Rename-Computer AWSAD11 -restart
+
+# ----SET Pwershell to execute other powershell scripts
+
 Set-ExecutionPolicy Unrestricted -Force
+
+# ----SET restriction mode 
+
 Set-StrictMode -Version latest
 
+# ----SET TimeZONE to UK Time Zone
 
-#Set an StaticIP to the server 
+$timeZone = "GMT Standard Time"
+$WinOSVerReg = Get-Item "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+$WinOSVer = $WinOSVerReg.GetValue("CurrentVersion")
+if ($WinOSVer -GE 6){
+tzutil.exe /s $timeZone
+} Else {
+$params = "/c Start `"Change timeZone`" /MIN %WINDIR%\System32\Control.exe TIMEDATE.CPL,,/Z "
+$params += $timeZone
+$proc = [System.Diagnostics.Process]::Start( "CMD.exe", $params )
+}
+
+# ----SET TimeZONE to UK Finished
 
 
 #Import PowerShell Module 
@@ -41,4 +58,5 @@ $SecurePassword = "P@ssw0rd" | ConvertTo-SecureString -AsPlainText -Force
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -Verbose -ErrorAction SilentlyContinue
 #Create forest and install ad dc,dns
 Install-ADDSForest -domainname $dcname -DomainMode Win2012R2 -ForestMode Win2012R2  -InstallDns:$true -DomainNetbiosName $netbios -SafeModeAdministratorPassword $SecurePassword  -NoRebootOnCompletion:$false -Force
-Rename-Computer AWSAD01 -restart
+
+Rename-Computer AWSAD01.Digitalday.LAB.net -restart
