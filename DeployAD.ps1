@@ -6,6 +6,7 @@
 ###########################################################
 #ERROR REPORTING ALL
 #Rename-Computer AWSAD11 -restart
+Set-ExecutionPolicy Unrestricted -Force
 Set-StrictMode -Version latest
 #Import PowerShell Module 
 Try
@@ -31,7 +32,7 @@ $dcname = "Digitalday.LAB.net"
 $netbios = "Digital"
 $SecurePassword = "P@ssw0rd" | ConvertTo-SecureString -AsPlainText -Force
 #Install AD-DS role
-Import-Module ADDSDeployment
+#Import-Module ADDSDeployment
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -Verbose -ErrorAction SilentlyContinue
 #Create forest and install ad dc,dns
 Install-ADDSForest -domainname $dcname -DomainMode Win2012R2 -ForestMode Win2012R2  -InstallDns:$true -DomainNetbiosName $netbios -SafeModeAdministratorPassword $SecurePassword  -NoRebootOnCompletion:$false -Force
