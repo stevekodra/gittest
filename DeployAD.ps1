@@ -77,7 +77,7 @@ Restart-Service w32time
 
 Remove-Item -Path "C:\Scripts\DeployAD.ps1" -Force -Recurse
 
-Restart-Computer
+Restart-Computer | Start-Sleep 3
 
 
 
