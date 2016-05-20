@@ -36,7 +36,7 @@ Import-Module International
 # ----Import 'International' module to Powershell session
 Set-Culture en-GB
 
-# ----Set regional format (date/time etc.) to English GB - this applies to all users
+# ----Set regional format (date/time etc.) to English GB - this applies to all users lgoin in
 Set-WinSystemLocale en-GB 
 
 Set-WinHomeLocation -GeoId 242
