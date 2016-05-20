@@ -75,4 +75,9 @@ w32tm.exe /config /manualpeerlist:”0.uk.pool.ntp.org 1.uk.pool.ntp.org 2.uk.po
 w32tm.exe /config /update
 Restart-Service w32time
 
-Restart-Computer -Force
+Remove-Item -Path "C:\Scripts\DeployAD.ps1" -Force -Recurse
+
+Restart-Computer
+
+
+
