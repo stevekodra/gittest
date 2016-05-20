@@ -14,5 +14,7 @@ set-itemproperty $RunOnceKey "NextRun" ('C:\Windows\System32\WindowsPowerShell\v
 # Allows the Instance to save above registery 
 Start-Sleep -Seconds 10
 
-# Restarts the computer 
-Restart-Computer
+Remove-Item -Path "C:\Scripts\renameinstance.ps1" -Force -Recurse
+
+Restart-Computer | Start-Sleep 3
+
