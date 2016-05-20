@@ -31,10 +31,14 @@ $proc = [System.Diagnostics.Process]::Start( "CMD.exe", $params )
 # ----Script to configure language settings for each user
 
 # ----Import 'International' module to Powershell session
-Import-Module InternationalSet-Culture
+Import-Module International 
+
+# ----Import 'International' module to Powershell session
+Set-Culture en-GB
 
 # ----Set regional format (date/time etc.) to English GB - this applies to all users
 Set-WinSystemLocale en-GB 
+
 Set-WinHomeLocation -GeoId 242
 
 # ----Set the language list for the user, forcing English (Australia) to be the only language
