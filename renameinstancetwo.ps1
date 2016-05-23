@@ -1,7 +1,7 @@
 ﻿
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
-# This Script Renames the instance to AWSAD01 and Also it schedule Job for another script to promote it to domain controller
+# This Script Renames the instance to AWSAD02 and Also it schedule Job for another script to promote it as domain controller
 
 # Rename the computer
 Rename-Computer AWSAD02
