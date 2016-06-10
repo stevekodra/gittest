@@ -7,7 +7,7 @@ ubuntu_openvpn_pkgs:
 openvpn_key_country: "UK"
 openvpn_key_province: "England"
 openvpn_key_city: "London"
-openvpn_key_org: "Travelex"
+openvpn_key_org: "Travel"
 openvpn_key_ou: "DevOps Team"
 openvpn_days_valid: "1825" # Number of days you want to keep the certificate as valid
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
@@ -25,7 +25,7 @@ openvpn_protocol: "tcp"
 openvpn_network: "172.18.0.0"
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
 secure_servers:
-  - "jenkins.dev-cluster.digital.travelex.net"
+  - "jenkins.dev-cluster.net"
 #  - 54.154.42.13
 #  - def.example.com\
 
