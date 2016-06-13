@@ -11,7 +11,7 @@
   command: echo 1 > /proc/sys/net/ipv4/ip_forward
 
 - name: Stop firewalld
-  service:
+  systemctl:
     name: firewalld
     state: stopped
     enabled: no
