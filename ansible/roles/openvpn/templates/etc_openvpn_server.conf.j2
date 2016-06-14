@@ -10,14 +10,19 @@ dh dh{{ openvpn_key_size }}.pem
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt
 
-#Push routes to the client to allow it to reach other 
+#Push routes to the client to allow it to reach other
 #private subnets behind the server.
 
 {% for net in private_networks %}
 push "route {{ net }} 255.255.255.0"
 {% endfor %}
 
-#If you want that all of your Internet traffic pass 
+push "redirect-private bypass-dhcp bypass-dns"
+{% for secure in secure_servers %}
+push "route {{ secure }}"
+{% endfor %}
+
+#If you want that all of your Internet traffic pass
 #through the VPN server then enable this
 ;push "redirect-gateway def1 bypass-dhcp"
 ;push "redirect-gateway def1"
