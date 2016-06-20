@@ -13,9 +13,9 @@ ifconfig-pool-persist ipp.txt
 #Push routes to the client to allow it to reach other
 #private subnets behind the server.
 
-{% for net in private_networks %}
-push "route {{ net }} 255.255.255.0"
-{% endfor %}
+#{% for net in private_networks %}
+#push "route {{ net }} 255.255.255.0"
+#{% endfor %}
 
 push "redirect-private bypass-dhcp bypass-dns"
 {% for secure in secure_servers %}
