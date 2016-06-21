@@ -11,7 +11,7 @@
 
 - name: Install the latest version of OpenVPN
   yum:
-    name: "{{ item }}" 
+    name: "{{ item }}"
     state: latest
   with_items: "{{ centos_openvpn_pkgs }}"
 
@@ -36,3 +36,13 @@
     name: "{{openvpn_service_name}}"
     enabled: yes
     state: started
+- name: Install firwallD
+  yum: yum install firewalld
+
+- name: enable firwallD services
+  command: systemctl unmask firewalld
+  command: systemctl enable firewalld
+  command: systemctl start firewalld
+
+- name: allow port 443 firewall-cmd
+  command: /usr/bin/firewall-cmd --permanent --add-port=443/tcp
