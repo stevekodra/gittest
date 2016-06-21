@@ -36,8 +36,12 @@
     name: "{{openvpn_service_name}}"
     enabled: yes
     state: started
+
 - name: Install firwallD
-  yum: install firewalld
+  yum: name=firewalld state=present
+
+- name: Firewalld service state
+  service: name=firewalld state=started enabled=yes
 
 - name: enable firwallD services
   command: systemctl unmask firewalld
