@@ -1,0 +1,12 @@
+---
+- name: install firewalld
+  yum: name=firewalld state=present
+
+- name: unmask firewalld
+command: systemctl unmask firewalld
+
+- name: enable and start firewalld
+ service: name:firewalld state=started enabled=yes
+
+- name: allow port 443 through firewalld
+  command: /usr/bin/firewall-cmd --permanent --add-port=443/tcp
