@@ -42,9 +42,9 @@ secure_servers:
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
-  - Stevek
-  - jenkins
-  - MyAccount
+  - laptop
+  - phone
+  - tablet
 
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
