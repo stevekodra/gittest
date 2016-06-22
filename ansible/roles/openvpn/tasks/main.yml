@@ -23,6 +23,7 @@
 
 - include: iptables.yml
 - include: generate-keys.yml
+- include: firewalld.yml
 
 - name: Copy OpenVPN configuration file into place
   template:
