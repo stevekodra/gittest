@@ -9,29 +9,34 @@ centos_openvpn_pkgs:
   - iptables
   - iptables-services
 
-openvpn_key_country:  "PK"
-openvpn_key_province: "Punjab"
-openvpn_key_city: "Lahore"
-openvpn_key_org: "Tendo Pvt ltd"
-openvpn_key_ou: "IT Department"
+openvpn_key_country:  "UK"
+openvpn_key_province: "London"
+openvpn_key_city: "London"
+openvpn_key_org: "Travel"
+openvpn_key_ou: "Dev Ops"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
 openvpn_key_size: "2048"
-openvpn_cipher: "BF-CBC"
-openvpn_auth_digest: "SHA1"
+openvpn_cipher: "AES-256-CBC"
+openvpn_auth_digest: "SHA256"
 openvpn_path: "/etc/openvpn"
 openvpn_ca: "{{ openvpn_path }}/ca"
 openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
 openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
-openvpn_server: "tendo.local"
-openvpn_port: "1194"
-openvpn_protocol: "udp"
-
+openvpn_server: "Digital.net"
+openvpn_port: "443"
+openvpn_protocol: "tcp"
+#inventory_hostname: "Openvpn-OpenVPNBal-109NBJXX6JQIR-393908335.eu-west-1.elb.amazonaws.com"
 # It assume that the subnet mask is /24
-openvpn_network: "10.8.0.0"
+openvpn_network: "172.18.0.0"
+# Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
+secure_servers:
+  - "jenkins.dev-cluster.net"
+#  - 54.154.42.13
+#  - def.example.com\
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
-private_networks:
+ private_networks:
   - 10.10.20.0
   - 10.10.30.0
 
