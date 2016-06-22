@@ -11,7 +11,7 @@
 
 - name: Install the latest version of OpenVPN
   yum:
-    name: "{{ item }}" 
+    name: "{{ item }}"
     state: latest
   with_items: "{{ centos_openvpn_pkgs }}"
 
