@@ -43,7 +43,7 @@ private_networks:
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
-  - laptop
+  - laptopme
   - phone
   - tablet
 
