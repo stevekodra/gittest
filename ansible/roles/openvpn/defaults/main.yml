@@ -36,7 +36,7 @@ secure_servers:
 #  - def.example.com\
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
-# private_networks:
+ private_networks:
 #   - 10.10.20.0
 #   - 10.10.30.0
 
