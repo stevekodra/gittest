@@ -1,0 +1,32 @@
+---
+- name: Set ip forwarding in the sysctl file and reload if necessary
+  sysctl:
+    name: "net.ipv4.ip_forward"
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Enable IPv4 traffic forwarding - (/proc/sys/net/ipv4/ip_forward)
+  command: echo 1 > /proc/sys/net/ipv4/ip_forward
+
+- name: Enable the iptables service
+  service:
+    name: iptables
+    state: started
+    enabled: yes
+
+- name: Add the iptables MASQUERADE rule
+  iptables:
+    table: nat
+    chain: POSTROUTING
+    out_interface: "{{ ansible_default_ipv4.interface }}"
+    protocol: all
+    source: "{{ openvpn_network }}/24"
+    jump: MASQUERADE
+    comment: "Perform NAT readdressing for OpenVPN"
+  register: masquerade_done
+
+- name: Save the rules
+  command: service iptables save
+  when: masquerade_done.changed
