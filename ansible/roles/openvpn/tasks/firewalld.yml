@@ -1,5 +1,5 @@
 ---
-- name: install firewalld
+- name: install firewalld -y
   yum: name=firewalld state=present
 
 - name: firewall service start
@@ -7,5 +7,3 @@
 
 - name: allow port 443 into firwalld
   command: /usr/bin/firewall-cmd --permanent --add-port=443/tcp
-
-
