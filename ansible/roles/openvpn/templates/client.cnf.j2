@@ -19,9 +19,9 @@ allow-pull-fqdn
 #;route {{ ansible_default_ipv4.address }} 255.255.255.255 net_gateway
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN
-# {% for net in private_networks %}
-# route {{ net }} 255.255.255.0 vpn_gateway
-# {% endfor %}
+ {% for net in private_networks %}
+ route {{ net }} 255.255.255.0 vpn_gateway
+ {% endfor %}
 
 
 # If you'd like to enable 2FA support, uncomment the following line
