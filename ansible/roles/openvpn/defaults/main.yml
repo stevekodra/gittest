@@ -46,7 +46,6 @@ openvpn_clients:
   - Stevek
   - jenkins
   - TonyK
-  - viktor
 
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
