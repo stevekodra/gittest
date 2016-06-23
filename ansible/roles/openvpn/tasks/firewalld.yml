@@ -1,5 +1,5 @@
 ---
-- name: install firewalld -y
+- name: install firewalld
   yum: name=firewalld state=present
 
 - name: firewall service start
