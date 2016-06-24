@@ -9,11 +9,11 @@ centos_openvpn_pkgs:
   - iptables
   - iptables-services
 
-openvpn_key_country:  "England"
+openvpn_key_country:  "UK"
 openvpn_key_province: "London"
 openvpn_key_city: "London"
 openvpn_key_org: "Travel"
-openvpn_key_ou: "IT Ops"
+openvpn_key_ou: "DevOps"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
 openvpn_key_size: "2048"
