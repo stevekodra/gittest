@@ -25,7 +25,7 @@ openvpn_protocol: "tcp"
 openvpn_network: "172.18.0.0"
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
 secure_servers:
-  - "jenkins.dev-cluster.net"
+  - "jenkins.dev-cluster.digital.travelex.net"
 #  - 54.154.42.13
 #  - def.example.com\
 
