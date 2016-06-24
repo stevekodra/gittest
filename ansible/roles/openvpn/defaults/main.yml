@@ -40,6 +40,7 @@ secure_servers:
  - "jenkins.dev-cluster.digital.travelex.net"
  - "bbc.co.uk"
  - "bbc.com"
+ - nexus.dev-cluster.digital.travelex.net
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
