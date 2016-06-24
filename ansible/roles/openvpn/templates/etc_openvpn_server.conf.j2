@@ -24,8 +24,7 @@ push "route {{ secure }}"
 
 #If you want that all of your Internet traffic pass
 #through the VPN server then enable this
-;push "redirect-gateway def1 bypass-dhcp"
-;push "redirect-gateway def1"
+push "redirect-gateway def1 bypass-dhcp";push "redirect-gateway def1"
 
 # For name resolution
 ;push "dhcp-option DNS 172.18.0.1"
