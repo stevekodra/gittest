@@ -9,21 +9,21 @@ centos_openvpn_pkgs:
   - iptables
   - iptables-services
 
-openvpn_key_country:  "PK"
-openvpn_key_province: "Punjab"
-openvpn_key_city: "Lahore"
-openvpn_key_org: "Tendo Pvt ltd"
-openvpn_key_ou: "IT Department"
+openvpn_key_country:  "England"
+openvpn_key_province: "London"
+openvpn_key_city: "London"
+openvpn_key_org: "Travel"
+openvpn_key_ou: "IT Ops"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
 openvpn_key_size: "2048"
-openvpn_cipher: "BF-CBC"
-openvpn_auth_digest: "SHA1"
+openvpn_cipher: "AES-256-CBC"
+openvpn_auth_digest: "SHA25"
 openvpn_path: "/etc/openvpn"
 openvpn_ca: "{{ openvpn_path }}/ca"
 openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
 openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
-openvpn_server: "tendo.local"
+openvpn_server: "Digital.local"
 openvpn_port: "443"
 openvpn_protocol: "tcp"
 
@@ -41,7 +41,7 @@ secure_servers:
 # Please mentioned the clients' name at this location
 openvpn_clients:
   - jenkins
-  - phone
+  - SteveK
   - tablet
   - tablet1
 
