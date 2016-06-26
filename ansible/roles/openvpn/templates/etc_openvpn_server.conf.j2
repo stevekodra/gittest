@@ -17,7 +17,8 @@ ifconfig-pool-persist ipp.txt
 #push "route {{ net }} 255.255.255.0"
 #{% endfor %}
 
-push "redirect-private bypass-dhcp bypass-dns"
+#push "redirect-private bypass-dhcp bypass-dns"
+push "redirect-gateway def1 bypass-dhcp bypass-dns"
 {% for secure in secure_servers %}
 push "route {{ secure }}"
 {% endfor %}
