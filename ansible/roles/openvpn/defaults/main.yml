@@ -41,13 +41,6 @@ secure_servers:
  - "bbc.co.uk"
  - "bbc.com"
  - nexus.dev-cluster.digital.travelex.net
-
- # OPENVPN rules for iptables
- iptables_openvpn_rules:
-   - /sbin/iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-   - /sbin/iptables -A FORWARD -s {{ openvpn_network }}/24 -j ACCEPT
-   - /sbin/iptables -A FORWARD -j REJECT
-   - /sbin/iptables -t nat -A POSTROUTING -s {{ openvpn_network }}/24 -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
 # Please mentioned the clients' name at this location
 openvpn_clients:
   - jenkins
