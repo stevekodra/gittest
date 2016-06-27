@@ -28,7 +28,7 @@ openvpn_port: "443"
 openvpn_protocol: "tcp"
 #inventory_hostname: "Openvpn-OpenVPNBal-109NBJXX6JQIR-393908335.eu-west-1.elb.amazonaws.com"
 # It assume that the subnet mask is /24
-openvpn_network: "172.18.0.0"
+openvpn_network: "172.16.0.0"
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
 secure_servers:
   - "jenkins.dev-cluster.net"
