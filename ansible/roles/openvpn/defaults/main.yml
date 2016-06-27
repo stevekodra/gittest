@@ -28,7 +28,7 @@ openvpn_port: "443"
 openvpn_protocol: "tcp"
 
 # It assume that the subnet mask is /24
-openvpn_network: "172.18.0.0"
+openvpn_network: "172.16.0.0"
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet #mask is /24
 private_networks:
@@ -44,7 +44,7 @@ iptables_openvpn_rules:
   - /sbin/iptables -A FORWARD -j REJECT
   - /sbin/iptables -t nat -A POSTROUTING -s {{ openvpn_network }}/24 -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
 secure_servers:
- - "https://jenkins.dev-cluster.digital.travelex.net"
+ - "jenkins.dev-cluster.digital.travelex.net"
  - "bbc.co.uk"
  - "bbc.com"
  - nexus.dev-cluster.digital.travelex.net
@@ -56,5 +56,5 @@ openvpn_clients:
   - tablet1
 
 # openvpn service related information
-openvpn_config_file: "openvpn@{{ server }}.{{ conf }}"
-openvpn_service_name: "openvpn@{{ server.conf }}.service"
+openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
+openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
