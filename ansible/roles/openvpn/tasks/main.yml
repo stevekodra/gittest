@@ -29,8 +29,8 @@
   template:
     src: etc_openvpn_server.conf.j2
     dest: "/etc/openvpn/openvpn.conf"
-  notify:
-    - Restart Openvpn
+#  notify:
+  #  - Restart Openvpn
 
 - name: setup openvpn auto-start & start
   service:
