@@ -34,7 +34,7 @@
 
 - name: setup openvpn auto-start & start
   service:
-    name: "openvpn"
+    name: "openvpn1"
     enabled: yes
     state: started
 - name: Restart server server for firewalld to take effect
