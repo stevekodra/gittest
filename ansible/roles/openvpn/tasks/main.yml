@@ -28,13 +28,13 @@
 - name: Copy OpenVPN configuration file into place
   template:
     src: etc_openvpn_server.conf.j2
-    dest: "/etc/openvpn/{{ openvpn_config_file }}.conf"
+    dest: "/etc/openvpn/openvpn.conf"
   notify:
     - Restart Openvpn
 
 - name: setup openvpn auto-start & start
   service:
-    name: "{{openvpn_service_name}}"
+    name: "openvpn"
     enabled: yes
     state: started
 - name: Restart server server for firewalld to take effect
