@@ -49,5 +49,5 @@ openvpn_clients:
   - tablet1
 
 # openvpn service related information
-openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
-openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+#openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
+#openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
