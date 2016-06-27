@@ -44,7 +44,7 @@ iptables_openvpn_rules:
   - /sbin/iptables -A FORWARD -j REJECT
   - /sbin/iptables -t nat -A POSTROUTING -s {{ openvpn_network }}/24 -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
 secure_servers:
- - "https://jenkins.dev-cluster.digital.travelex.net"
+ - "jenkins.dev-cluster.digital.travelex.net"
  - "bbc.co.uk"
  - "bbc.com"
  - nexus.dev-cluster.digital.travelex.net
@@ -56,5 +56,5 @@ openvpn_clients:
   - tablet1
 
 # openvpn service related information
-openvpn_config_file: "openvpn_{{ server.conf }}_{{ conf }}"
+openvpn_config_file: "openvpn_{{ server.conf }}"
 openvpn_service_name: "openvpn@{{ server.conf }}.service"
