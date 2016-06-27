@@ -36,6 +36,13 @@ private_networks:
 - 54.154.42.13
 #- 10.10.30.0
 #- listyour dns names here
+
+# OPENVPN rules for iptables
+iptables_openvpn_rules:
+  - /sbin/iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+  - /sbin/iptables -A FORWARD -s {{ openvpn_network }}/24 -j ACCEPT
+  - /sbin/iptables -A FORWARD -j REJECT
+  - /sbin/iptables -t nat -A POSTROUTING -s {{ openvpn_network }}/24 -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
 secure_servers:
  - "https://jenkins.dev-cluster.digital.travelex.net"
  - "bbc.co.uk"
@@ -50,4 +57,4 @@ openvpn_clients:
 
 # openvpn service related information
 #openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
-#openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
