@@ -24,19 +24,6 @@
 - include: iptables.yml
 - include: generate-keys.yml
 
-- name: Deploy plugin
-  copy:
-    src={{ item }}
-    dest={{ okta_plugin_location }}
-  with_items:
-   - defer_simple.so
-   - okta_openvpn.py
-   - okta_pinset.py
-  
-- name: Deploy okta ini
-  template: 
-    src=okta_openvpn.ini.j2
-    dest="{{ openvpn_path }}/okta_openvpn.ini"
 
 - name: Copy OpenVPN configuration file into place
   template:

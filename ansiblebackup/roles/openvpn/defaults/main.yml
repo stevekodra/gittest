@@ -48,10 +48,3 @@ openvpn_clients:
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
 openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
-
-# okta releated information
-okta_url: "https://loveabrand.okta.com"
-okta_token: "00NsRBwD05j9AIwHiTREfGvAdsP1ENgqpidAU1vs6G"
-okta_plugin_location: "/usr/lib/openvpn/plugins"
-okta_tmp_dir: '"{{ openvpn_path }}/tmp"'
-
