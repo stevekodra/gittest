@@ -57,7 +57,7 @@
   command: /sbin/iptables -I FORWARD -s 10.8.0.0/16 -j ACCEPT
 #me added the line here for iptables
 - name: iptables - Allow port 443
-  command: /sbin/iptables -I iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+  command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
 - name: Save the rules
   command: service iptables save
