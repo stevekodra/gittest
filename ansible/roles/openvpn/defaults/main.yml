@@ -9,10 +9,10 @@ centos_openvpn_pkgs:
   - iptables
   - iptables-services
 
-openvpn_key_country:  "PK"
-openvpn_key_province: "Punjab"
-openvpn_key_city: "Lahore"
-openvpn_key_org: "Tendo Pvt ltd"
+openvpn_key_country:  "England"
+openvpn_key_province: "London"
+openvpn_key_city: "London"
+openvpn_key_org: "Travel ltd"
 openvpn_key_ou: "IT Department"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
