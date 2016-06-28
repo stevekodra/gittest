@@ -41,9 +41,6 @@ secure_servers:
 # Please mentioned the clients' name at this location
 openvpn_clients:
   - jenkins
-  - phone
-  - tablet
-  - tablet1
 
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
