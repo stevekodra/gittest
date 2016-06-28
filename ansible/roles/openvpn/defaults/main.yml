@@ -43,9 +43,7 @@ private_networks:
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
-  - laptop
-  - phone
-  - tablet
+  - stevek
 
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
