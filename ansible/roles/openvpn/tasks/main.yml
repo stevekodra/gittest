@@ -20,7 +20,7 @@
     name: nogroup
     state: present
     system: yes
-- include: firewalld.yml
+#- include: firewalld.yml
 - include: iptables.yml
 - include: generate-keys.yml
 
