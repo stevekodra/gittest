@@ -9,6 +9,13 @@
   changed_when: false
   failed_when: false
 
+- name: Determine if firewalld service masked
+  command: >
+    systemctl is-enabled firewalld
+  register: os_firewall_firewalld_masked_output
+  changed_when: false
+  failed_when: false
+
 - name: Unmask firewalld service
   command: >
     systemctl unmask firewalld
