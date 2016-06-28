@@ -20,6 +20,9 @@
     state: started
     enabled: yes
   register: result
+- name: need to pause here, otherwise the firewalld service starting can sometimes cause ssh to fail
+  pause: seconds=10
+  when: result | changed
 #- name: unmask firewalld
 #  command: /usr/bin/systemctl unmask firewalld
 
