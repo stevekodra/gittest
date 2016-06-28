@@ -4,7 +4,7 @@
 
 - name: firewall service start
   service: name=firewalld state=started enabled=yes
-  
+
 - name: allow port 443 into firwalld permanent
   command: /usr/bin/firewall-cmd --permanent --add-port=443/tcp
 #- name: allow port 443 into firwalld
