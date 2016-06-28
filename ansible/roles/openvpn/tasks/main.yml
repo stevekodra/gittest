@@ -37,8 +37,8 @@
     name: "openvpn@openvpn"
     enabled: yes
     state: started
-#- name: Restart server server for firewalld to take effect
- command: /sbin/shutdown -r +1
-  async: 0
-  poll: 0
-  ignore_errors: true
+- name: Restart server server for firewalld to take effect
+  command: /sbin/shutdown -r +1
+   async: 0
+   poll: 0
+   ignore_errors: true
