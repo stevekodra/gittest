@@ -40,6 +40,15 @@
     comment: "Perform NAT readdressing for OpenVPN"
   register: masquerade_done
 
+- name: Add the iptables forwarding rule
+  iptables:
+    table: filter
+    chain: FORWARD
+    protocol: all
+    source: "{{ openvpn_network }}/24"
+    jump: ACCEPT
+    comment: "Perform forwarding for OpenVPN"
+
 - name: Save the rules
   command: service iptables save
   when: masquerade_done.changed
