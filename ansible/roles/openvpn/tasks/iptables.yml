@@ -62,8 +62,9 @@
 - name: iptables - Allow port 443
   command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 #me added the line here for iptables
-- name: iptables -Reject prohibited ICPM
-  command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
+#- name: iptables -Reject prohibited ICPM
+#  command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
+
 - name: Save the rules
   command: service iptables save
   when: masquerade_done.changed
