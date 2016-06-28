@@ -2,6 +2,10 @@
 - name: install firewalld
   yum: name=firewalld state=present
 
+- name: Unmask firewalld service
+  command: >
+    systemctl unmask firewalld
+  when: os_firewall_firewalld_masked_output.stdout == "masked"
 #- name: unmask firewalld
 #  command: /usr/bin/systemctl unmask firewalld
 
