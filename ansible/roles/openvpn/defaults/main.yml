@@ -30,6 +30,12 @@ openvpn_protocol: "udp"
 # It assume that the subnet mask is /24
 openvpn_network: "10.8.0.0"
 
+secure_servers:
+ - "jenkins.dev-cluster.digital.travelex.net"
+ - "bbc.co.uk"
+ - "bbc.com"
+ - nexus.dev-cluster.digital.travelex.net
+
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
 private_networks:
   - 10.10.20.0
