@@ -2,8 +2,8 @@
 - name: install firewalld
   yum: name=firewalld state=present
 
-- name: unmask firewalld
-  command: /usr/bin/systemctl unmask firewalld
+#- name: unmask firewalld
+#  command: /usr/bin/systemctl unmask firewalld
 
 - name: firewall service start
   service: name=firewalld state=started enabled=yes
