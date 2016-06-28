@@ -1,0 +1,50 @@
+---
+EPEL_REPO_URL: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+EPEL_REPO_GPG_KEY_URL: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+
+centos_openvpn_pkgs:
+  - openvpn
+  - easy-rsa
+  - openssl
+  - iptables
+  - iptables-services
+
+openvpn_key_country:  "England"
+openvpn_key_province: "London"
+openvpn_key_city: "London"
+openvpn_key_org: "travel"
+openvpn_key_ou: "Dev Ops"
+openvpn_days_valid: "1825"
+openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
+openvpn_key_size: "2048"
+openvpn_cipher: "AES-256-CBC"
+openvpn_auth_digest: "SHA256"
+openvpn_path: "/etc/openvpn"
+openvpn_ca: "{{ openvpn_path }}/ca"
+openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
+openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
+openvpn_server: "digital.local"
+openvpn_port: "443"
+openvpn_protocol: "tcp"
+
+# It assume that the subnet mask is /24
+openvpn_network: "10.8.0.0"
+
+secure_servers:
+ - "jenkins.dev-cluster.digital.travelex.net"
+ - "bbc.co.uk"
+ - "bbc.com"
+ - nexus.dev-cluster.digital.travelex.net
+
+# Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
+private_networks:
+  - 10.10.20.0
+  - 10.10.30.0
+
+# Please mentioned the clients' name at this location
+openvpn_clients:
+  - stevek
+
+# openvpn service related information
+openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
+openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"

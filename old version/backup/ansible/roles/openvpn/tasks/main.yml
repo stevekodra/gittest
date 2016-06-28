@@ -1,0 +1,45 @@
+---
+- name: Import EPEL GPG key
+  rpm_key:
+    key: "{{ EPEL_REPO_GPG_KEY_URL }}"
+    state: present
+
+- name: Install the EPEL repo
+  yum:
+    name: "{{ EPEL_REPO_URL }}"
+    state: present
+
+- name: Install the latest version of OpenVPN
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ centos_openvpn_pkgs }}"
+
+- name: Ensure group 'nogroup' is present
+  group:
+    name: nogroup
+    state: present
+    system: yes
+
+- include: iptables.yml
+- include: generate-keys.yml
+
+
+- name: Copy OpenVPN configuration file into place
+  template:
+    src: etc_openvpn_server.conf.j2
+    dest: "/etc/openvpn/{{ openvpn_config_file }}.conf"
+  notify:
+    - Restart Openvpn
+
+- name: setup openvpn auto-start & start
+  service:
+    name: "{{openvpn_service_name}}"
+    enabled: yes
+    state: started
+
+#- name: Restart server server for firewalld to take effect
+#  command: /sbin/shutdown -r +1
+#  async: 0
+#  poll: 0
+#  ignore_errors: true
