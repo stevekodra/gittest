@@ -23,20 +23,20 @@ openvpn_path: "/etc/openvpn"
 openvpn_ca: "{{ openvpn_path }}/ca"
 openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
 openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
-openvpn_server: "tendo.local"
+openvpn_server: "Digital.local"
 openvpn_port: "443"
 openvpn_protocol: "tcp"
 
 # It assume that the subnet mask is /24
-openvpn_network: "10.8.0.0"
+openvpn_network: "172.16.0.0"
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet #mask is /24
 private_networks:
 - 10.10.20.0
 #- 10.10.30.0
-#- listyour dns names here 
+#- listyour dns names here
 secure_servers:
- - "jenkins.digital.com"
+ - "nexus.dev-cluster.digital.travelex.net"
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
