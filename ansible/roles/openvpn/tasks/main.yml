@@ -37,6 +37,7 @@
   template:
     src=okta_openvpn.ini.j2
     dest="{{ openvpn_path }}/okta_openvpn.ini"
+
 - name: create dirs
     file:
        dest={{ item }}
