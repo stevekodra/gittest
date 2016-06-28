@@ -20,10 +20,10 @@
     name: nogroup
     state: present
     system: yes
-
+- include: firewalld.yml
 - include: iptables.yml
 - include: generate-keys.yml
-- include: firewalld.yml
+
 
 - name: Copy OpenVPN configuration file into place
   template:
