@@ -24,8 +24,8 @@ openvpn_ca: "{{ openvpn_path }}/ca"
 openvpn_dhparam: "{{ openvpn_path }}/dh{{ openvpn_key_size }}.pem"
 openvpn_hmac_firewall: "{{ openvpn_path }}/ta.key"
 openvpn_server: "tendo.local"
-openvpn_port: "1194"
-openvpn_protocol: "udp"
+openvpn_port: "443"
+openvpn_protocol: "tcp"
 
 # It assume that the subnet mask is /24
 openvpn_network: "10.8.0.0"
