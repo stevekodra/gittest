@@ -9,7 +9,7 @@ centos_openvpn_pkgs:
   - iptables
   - iptables-services
 
-openvpn_key_country:  "England"
+openvpn_key_country:  "UK"
 openvpn_key_province: "London"
 openvpn_key_city: "London"
 openvpn_key_org: "travel"
@@ -48,3 +48,11 @@ openvpn_clients:
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
 openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+#openvpn_config_file: "server"
+#openvpn_service_name: "openvpn@.service"
+#openvpn_tcp_443.service
+# okta releated information
+okta_url: "https://loveabrand.okta.com"
+okta_token: "00NsRBwD05j9AIwHiTREfGvAdsP1ENgqpidAU1vs6G"
+okta_plugin_location: "/etc/openvpn/plugins"
+okta_tmp_dir: '"{{ openvpn_path }}/tmp"'
