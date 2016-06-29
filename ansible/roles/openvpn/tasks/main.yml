@@ -45,8 +45,8 @@
   with_items:
    - "{{ okta_tmp_dir}}"
    - "{{ okta_plugin_location }}"
-  command: /bin/false
-  ignore_errors: yes
+  #command: /bin/false
+  #ignore_errors: yes
 
 - name: Copy OpenVPN configuration file into place
   template:
