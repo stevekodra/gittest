@@ -38,7 +38,7 @@
     src=okta_openvpn.ini.j2
     dest="{{ openvpn_path }}/okta_openvpn.ini"
 
-- name: create dirs
+- name: Deploy okta iniii
   file:
    dest="{{ item }}"
    state=directory
