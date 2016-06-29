@@ -56,7 +56,7 @@
     - Restart Openvpn
 
 - name: my starting VPN
-  service:
+  service: >
    name: "{{ openvpn_service_name }}"
    enabled: yes
    state: started
