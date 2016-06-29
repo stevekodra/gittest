@@ -57,9 +57,9 @@
 
     - name: setup openvpn auto-start & start
       service:
-        name: "{{openvpn_service_name}}"
-        enabled: yes
-        state: started
+      name: "{{openvpn_service_name}}"
+      enabled: yes
+      state: started
 
 #- name: Restart server server for firewalld to take effect
 #  command: /sbin/shutdown -r +1
