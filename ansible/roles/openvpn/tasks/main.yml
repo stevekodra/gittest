@@ -55,11 +55,11 @@
   notify:
     - Restart Openvpn
 
-- name: setup openvpn auto-start & start
+- name: my starting VPN
   service:
-    name: "{{openvpn_service_name}}"
-    enabled: yes
-    state: started
+   name: "{{openvpn_service_name}}"
+   enable: yes
+   state: started
 
 #- name: Restart server server for firewalld to take effect
 #  command: /sbin/shutdown -r +1
