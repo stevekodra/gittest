@@ -57,8 +57,8 @@
 
 - name: setup openvpn auto-start & start
   service:
-     name: "{{openvpn_service_name}}"
-    #name: "{{openvpn_service_name}}"
+    # name: "{{openvpn_service_name}}"
+    name: "{{openvpn_service_name}}"
     enabled: yes
     state: started
 
