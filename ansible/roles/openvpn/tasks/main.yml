@@ -57,7 +57,7 @@
 
 - name: my starting VPN
   service:
-   name: "{{openvpn_service_name}}"
+   name: "{{ openvpn_service_name }}"
    enabled: yes
    state: started
 
