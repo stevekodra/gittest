@@ -39,10 +39,10 @@
     dest="{{ openvpn_path }}/okta_openvpn.ini"
 
 - name: create dirs
-    file:
-     dest={{ item }}
-     state=directory
-    with_items:
+  file:
+    dest={{ item }}
+    state=directory
+  with_items:
       - "{{ okta_tmp_dir}}"
       - "{{ okta_plugin_location }}"
 
