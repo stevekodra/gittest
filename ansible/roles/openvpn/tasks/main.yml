@@ -11,7 +11,7 @@
 
 - name: Install the latest version of OpenVPN
   yum:
-    name: "{{ item }}" 
+    name: "{{ item }}"
     state: latest
   with_items: "{{ centos_openvpn_pkgs }}"
 
@@ -23,7 +23,6 @@
 
 - include: iptables.yml
 - include: generate-keys.yml
-- include: firewalld.yml
 
 - name: Copy OpenVPN configuration file into place
   template:
@@ -37,4 +36,3 @@
     name: "{{openvpn_service_name}}"
     enabled: yes
     state: started
-
