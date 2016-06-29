@@ -10,22 +10,6 @@
 - name: Enable IPv4 traffic forwarding - (/proc/sys/net/ipv4/ip_forward)
   command: echo 1 > /proc/sys/net/ipv4/ip_forward
 
-- name: install firewalld
-  yum: name=firewalld state=present
-
-- name: Stop firewalld
-  service:
-    name: firewalld
-    state: stopped
-    enabled: no
-
-- name: Mask firewalld
-  command: systemctl mask firewalld
-  register: systemctl_test
-  failed_when: "systemctl_test.rc != 0"
-  changed_when: False
-  ignore_errors: True
-
 - name: Enable the iptables service
   service:
     name: iptables
@@ -43,27 +27,6 @@
     comment: "Perform NAT readdressing for OpenVPN"
   register: masquerade_done
 
-- name: Add the iptables forwarding rule
-  iptables:
-    table: filter
-    chain: FORWARD
-    protocol: all
-    source: "{{ openvpn_network }}/24"
-    jump: ACCEPT
-    comment: "Perform forwarding for OpenVPN"
-#me added the line here for iptables
-- name: iptables - Perform NAT readdressing
-  command: /sbin/iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j MASQUERADE
-
-#me added the line here for iptables
-- name: iptables - Perform NAT readdressing
-  command: /sbin/iptables -I FORWARD -s 10.8.0.0/16 -j ACCEPT
-#me added the line here for iptables
-- name: iptables - Allow port 443
-  command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-#me added the line here for iptables
-- name: iptables -Reject prohibited ICPM
-  command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
 - name: Save the rules
   command: service iptables save
   when: masquerade_done.changed
