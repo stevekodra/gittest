@@ -45,7 +45,9 @@
   with_items:
       - "{{ okta_tmp_dir}}"
       - "{{ okta_plugin_location }}"
-
+  command: /bin/false
+  ignore_errors: yes
+ 
 - name: Copy OpenVPN configuration file into place
   template:
     src: etc_openvpn_server.conf.j2
