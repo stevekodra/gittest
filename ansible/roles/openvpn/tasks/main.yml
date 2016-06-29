@@ -38,13 +38,13 @@
     src=okta_openvpn.ini.j2
     dest="{{ openvpn_path }}/okta_openvpn.ini"
 
-- name: Create dirs
-   file:
-    dest="{{ item }}"
-    state=directory
-  with_items:
-   - "{{ okta_tmp_dir}}"
-   - "{{ okta_plugin_location }}"
+#- name: Create dirs
+#   file:
+#    dest="{{ item }}"
+#    state=directory
+#  with_items:
+#   - "{{ okta_tmp_dir}}"
+#   - "{{ okta_plugin_location }}"
   #command: /bin/false
   #ignore_errors: yes
 
