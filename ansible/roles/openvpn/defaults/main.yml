@@ -46,10 +46,10 @@ openvpn_clients:
   - stevek
 
 # openvpn service related information
-#openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
-#openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
-openvpn_config_file: "server"
-openvpn_service_name: "openvpn@.service"
+openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
+openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+#openvpn_config_file: "server"
+#openvpn_service_name: "openvpn@.service"
 
 # okta releated information
 okta_url: "https://loveabrand.okta.com"
