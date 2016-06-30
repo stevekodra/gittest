@@ -28,18 +28,18 @@
   register: masquerade_done
   #me added the line here for iptables
 - name: iptables - Perform NAT readdressing
-    command: /sbin/iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j MASQUERADE
+  command: /sbin/iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j MASQUERADE
   #me added the line here for iptables
 - name: iptables - Perform NAT readdressing
-    command: /sbin/iptables -I FORWARD -s 10.8.0.0/16 -j ACCEPT
+  command: /sbin/iptables -I FORWARD -s 10.8.0.0/16 -j ACCEPT
   #me added the line here for iptables
 - name: iptables - Allow port 443
-    command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+  command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
   #me added the line here for iptables
 - name: iptables -Reject prohibited ICPM
-    command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
-    command: /bin/false
-    ignore_errors: yes
+  command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
+  command: /bin/false
+  ignore_errors: yes
 
 - name: Save the rules
   command: service iptables save
