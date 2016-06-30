@@ -45,7 +45,7 @@
 - name: reject icmp-host-prohibited
   command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited && touch /root/.icmp-host-prohibited
   args:
-  Creates: /root/.icmp-host-prohibited
+  creates: /root/.icmp-host-prohibited
 
 #  command: /bin/false
 #  ignore_errors: yes
