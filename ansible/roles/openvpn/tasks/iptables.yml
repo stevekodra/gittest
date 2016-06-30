@@ -39,7 +39,6 @@
 - name: reject icmp-host-prohibited
   command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
   run_once: true
-  #command: /bin/false
   ignore_errors: yes
 
 - name: Save the rules
