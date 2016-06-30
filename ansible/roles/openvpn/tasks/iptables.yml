@@ -39,11 +39,8 @@
 - name: reject icmp-host-prohibited
   command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
   run_once: true
-  #run_once=task.run_once
-  #allow_duplicates=no
-  #delegate_to: localhost
   #command: /bin/false
-  #ignore_errors: yes
+  ignore_errors: yes
 
 - name: Save the rules
   command: service iptables save
