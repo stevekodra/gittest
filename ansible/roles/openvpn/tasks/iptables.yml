@@ -37,9 +37,9 @@
   command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
 - name: reject icmp-host-prohibited
-  #run_once: true
+  run_once: yes
   command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
-  run_once=task.run_once
+  #run_once=task.run_once
   #allow_duplicates=no
   #delegate_to: localhost
   #command: /bin/false
