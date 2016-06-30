@@ -43,7 +43,10 @@
 #   command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
   #me added the line here for iptables
 - name: reject icmp-host-prohibited
-  command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
+  command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited && touch /root/.icmp-host-prohibited
+  args:
+  Creates: /root/.icmp-host-prohibited
+
 #  command: /bin/false
 #  ignore_errors: yes
 #- name: iptables -Reject prohibited ICPM
