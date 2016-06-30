@@ -10,7 +10,7 @@
 - name: Enable IPv4 traffic forwarding - (/proc/sys/net/ipv4/ip_forward)
   command: echo 1 > /proc/sys/net/ipv4/ip_forward
 
-- name: install firewalld
+- name: add firewalld
   yum: name=firewalld state=present
 
 - name: Stop firewalld
