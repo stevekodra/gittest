@@ -37,9 +37,9 @@
   command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
 - name: reject icmp-host-prohibited
-  command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
   run_once: true
-  delegate_to: localhost
+  command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
+  #delegate_to: localhost
   #command: /bin/false
   #ignore_errors: yes
 
