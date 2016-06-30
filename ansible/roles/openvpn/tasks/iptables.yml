@@ -44,8 +44,8 @@
   #me added the line here for iptables
 - name: reject icmp-host-prohibited
   command: /sbin/iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
-  command: /bin/false
-  ignore_errors: yes
+#  command: /bin/false
+#  ignore_errors: yes
 #- name: iptables -Reject prohibited ICPM
 #   command: /sbin/iptables -D FORWARD  -j REJECT --reject-with icmp-host-prohibited
 #   command: /bin/false
