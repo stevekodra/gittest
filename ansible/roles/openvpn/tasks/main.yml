@@ -37,7 +37,7 @@
 #action: file dest=$item state=directory
 
 - name: create dirs
-  file: "dest={{ item }} state=directory mode=0755"
+  file: "dest={{ openvpn_path }} state=directory mode=0755"
   with_items:
     - "{{ okta_tmp_dir}}"
     - "{{ okta_plugin_location }}"
