@@ -37,7 +37,7 @@
 #action: file dest=$item state=directory
 
 - name: create dir
-  file: "path=/etc.openvpn/tmp state=directory"
+  file: "path=/etc.openvpn/tmpp state=directory"
   ignore_errors: true
   name: create
   run_once: true
