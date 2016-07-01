@@ -35,8 +35,9 @@
 - name: Deploy okta ini
   template: src=okta_openvpn.ini.j2 dest="{{ openvpn_path }}/okta_openvpn.ini"
 #action: file dest=$item state=directory
+
 - name: create dirs
-  action: file "dest={{ item }} state=directory"
+  file: dest={{ item }} state=directory mode=0755
   with_items:
     - "{{ okta_tmp_dir}}"
     - "{{ okta_plugin_location }}"
