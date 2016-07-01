@@ -51,4 +51,4 @@ openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
 okta_url: "https://loveabrand.okta.com"
 okta_token: "00NsRBwD05j9AIwHiTREfGvAdsP1ENgqpidAU1vs6G"
 okta_plugin_location: "/etc/openvpn/plugins"
-okta_tmp_dir: '"{{ okta_tmp_path }}/tmp"'
+okta_tmp_dir: "{{ okta_tmp_path }}"
