@@ -1,4 +1,6 @@
 ---
+- name: debug-this
+  debug: var=result
 - name: Import EPEL GPG key
   rpm_key:
     key: "{{ EPEL_REPO_GPG_KEY_URL }}"
