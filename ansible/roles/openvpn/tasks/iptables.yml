@@ -44,10 +44,10 @@
   register: masquerade_done
 
 - name: Add IP adress MASQUERADE rule
-  command: /sbin/iptables -I FORWARD -s 172.18.0.0/16 -j ACCEPT
+  command: /sbin/iptables -I FORWARD -s 172.16.0.0/16 -j ACCEPT
 
 - name: perfomss NAT readdressingme
-  command: /sbin/iptables -I FORWARD -s 172.18.0.0/16 -j ACCEPT
+  command: /sbin/iptables -I FORWARD -s 172.16.0.0/16 -j ACCEPT
 
 - name: allow port 443
   command: /sbin/iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
