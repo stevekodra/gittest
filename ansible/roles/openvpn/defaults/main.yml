@@ -51,5 +51,5 @@ openvpn_service_name: "openvpn@openvpn.service"
 #Okta Run pluggins
 okta_url: "https://loveabrand.okta.com"
 okta_token: "00NsRBwD05j9AIwHiTREfGvAdsP1ENgqpidAU1vs6G"
-okta_plugin_location: "{{ openvpn_path }}/plugins"
+okta_plugin_location: "{{ openvpn_path }}/plugin"
 okta_tmp_dir: "{{ openvpn_path }}/tmp"
