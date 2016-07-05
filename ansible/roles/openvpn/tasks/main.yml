@@ -33,11 +33,11 @@
    - okta_pinset.py
 
 - name: Deploy okta ini
-  file: "dest={{ item }} state=directory recurse=yes"
-  with_items:
+   file: "dest={{ item }} state=directory recurse=yes"
+   with_items:
     - "{{ okta_tmp_dir}}"
     - "{{ okta_plugin_location }}"
-  template: src=okta_openvpn.ini.j2 dest="{{ openvpn_path }}/okta_openvpn.ini"
+   template: src=okta_openvpn.ini.j2 dest="{{ openvpn_path }}/okta_openvpn.ini"
 
 - name: create temp directory
   file: "dest={{ item }} state=directory recurse=yes"
