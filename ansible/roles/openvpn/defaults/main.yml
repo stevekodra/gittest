@@ -44,8 +44,10 @@ openvpn_clients:
 
 
 # openvpn service related information
-openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
-openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+#openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
+#openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+openvpn_config_file: "server"
+openvpn_service_name: "openvpn@openvpn.service"
 #Okta Run pluggins
 okta_url: "https://loveabrand.okta.com"
 okta_token: "00NsRBwD05j9AIwHiTREfGvAdsP1ENgqpidAU1vs6G"
