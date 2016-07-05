@@ -38,10 +38,9 @@
     - "{{ okta_tmp_dir}}"
     - "{{ okta_plugin_location }}"
   template: src=okta_openvpn.ini.j2 dest="{{ openvpn_path }}/okta_openvpn.ini"
-#action: file dest=$item state=directory
-#file: "dest={{ item }} state=directory"
+
 - name: create temp directory
-  file: path=/etc/openvpn/{{ item }} state=directory recurse=yes"
+  file: "dest={{ item }} state=directory recurse=yes"
   with_items:
     - "{{ okta_tmp_dir }}"
     - "{{ okta_plugin_location }}"
