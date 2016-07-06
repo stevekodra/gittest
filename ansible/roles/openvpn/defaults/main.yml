@@ -28,7 +28,7 @@ openvpn_port: "443"
 openvpn_protocol: "tcp"
 
 # It assume that the subnet mask is /24
-openvpn_network: "172.16.0.0"
+openvpn_network: "10.8.0.0"
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet #mask is /24
 private_networks:
