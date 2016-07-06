@@ -6,22 +6,24 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 # Contributors: gdestuynder@mozilla.com
 
-import ConfigParser
-from ConfigParser import MissingSectionHeaderError
-import base64
-import hashlib
-import json
-import logging
-import logging.handlers
-import os
-import platform
-import stat
-import sys
-import urlparse
+pip install ConfigParser
+pip install ConfigParser
+pip install MissingSectionHeaderError
+pip install base64
+pip install hashlib
+pip install json
+pip install logging
+pip install logging.handlers
+pip install os
+pip install platform
+pip install stat
+pip install sys
+pip install urlparse
+#import urlparse
 
-import M2Crypto
-import certifi
-import urllib3
+pip install M2Crypto
+pip install certifi
+pip install urllib3
 
 from okta_pinset import okta_pinset
 
