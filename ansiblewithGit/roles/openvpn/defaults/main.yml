@@ -28,7 +28,7 @@ openvpn_port: "443"
 openvpn_protocol: "tcp"
 
 # It assume that the subnet mask is /24
-openvpn_network: "172.18.0.0"
+openvpn_network: "10.8.0.0"
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet #mask is /24
 private_networks:
@@ -46,3 +46,10 @@ openvpn_clients:
 # openvpn service related information
 openvpn_config_file: "openvpn_{{ openvpn_protocol }}_{{ openvpn_port }}"
 openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
+#openvpn_config_file: "server"
+#openvpn_service_name: "openvpn@openvpn.service"
+#Okta Run pluggins
+okta_url: "https://travel-digital.okta.com"
+okta_token: "00aBaDYBvrbTZS5opxLmOO2s9vvTFaY2_fg4JP6iaK"
+okta_plugin_location: "{{ openvpn_path }}/plugins"
+okta_tmp_dir: "{{ openvpn_path }}/tmp"
