@@ -8,7 +8,7 @@
     - ca
     - server
 
-- name: Create directories for clients
+- name: Create directories for clients profile
   file:
     path: "{{ openvpn_path}}/{{ item }}"
     state: directory
@@ -29,8 +29,8 @@
     mode: 0600
     state: directory
     recurse: yes
- 
-- name: Generate CA certificate
+
+- name: Generate CA certificate Authority 
   command: openssl req -nodes -batch -new -x509 -key {{ openvpn_ca }}.key -out {{ openvpn_ca }}.crt
             -days {{ openvpn_days_valid }} -subj "{{ openssl_request_subject }}/CN=ca-certificate"
   args:
@@ -88,7 +88,7 @@
     creates: "{{ item }}.crt"
     chdir: "{{ openvpn_path }}/{{ item }}"
   with_items: "{{ openvpn_clients }}"
-           
+
 - name: Generate the HMAC firewall key
   command: openvpn --genkey --secret {{ openvpn_hmac_firewall }}
   args:
