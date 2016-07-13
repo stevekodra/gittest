@@ -28,7 +28,7 @@ openvpn_port: "443"
 openvpn_protocol: "tcp"
 
 # OpenV Network /24 network
-openvpn_network: "172.18.0.0"
+openvpn_network: "10.8.0.0"
 
 # Private Subnet(s) in VPC if is required.
 private_networks:
