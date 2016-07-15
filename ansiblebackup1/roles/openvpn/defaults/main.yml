@@ -12,7 +12,7 @@ centos_openvpn_pkgs:
 openvpn_key_country:  "UK"
 openvpn_key_province: "London"
 openvpn_key_city: "London"
-openvpn_key_org: "travel"
+openvpn_key_org: "tra"
 openvpn_key_ou: "Dev Ops"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
@@ -31,10 +31,10 @@ openvpn_protocol: "tcp"
 openvpn_network: "10.8.0.0"
 
 secure_servers:
- - "jenkins.dev-cluster.digital.travelex.net"
+ - "jenkins.dev-cluster.digital.traex.net"
  - "bbc.co.uk"
  - "bbc.com"
- - nexus.dev-cluster.digital.travelex.net
+ - nexus.dev-cluster.digital.traex.net
 
 # Private Subnet(s) in VPC that you want to reach through OPENVPN, it assume that the subnet mask is /24
 private_networks:

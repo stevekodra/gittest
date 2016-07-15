@@ -36,7 +36,7 @@ private_networks:
 #- 10.10.30.0
 #- listyour dns names here
 secure_servers:
- - "jenkins.dev-cluster.digital.travelex.net"
+ - "jenkins.dev-cluster.digital.traex.net"
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
@@ -49,7 +49,7 @@ openvpn_service_name: "openvpn@{{ openvpn_config_file }}.service"
 #openvpn_config_file: "server"
 #openvpn_service_name: "openvpn@openvpn.service"
 #Okta Run pluggins
-okta_url: "https://travel-digital.okta.com"
+okta_url: "https://tra-digital.okta.com"
 okta_token: "00aBaDYBvrbTZS5opxLmOO2s9vvTFaY2_fg4JP6iaK"
 okta_plugin_location: "{{ openvpn_path }}/plugins"
 okta_tmp_dir: "{{ openvpn_path }}/tmp"

@@ -12,7 +12,7 @@ centos_openvpn_pkgs:
 openvpn_key_country:  "England"
 openvpn_key_province: "London"
 openvpn_key_city: "London"
-openvpn_key_org: "Travel ltd"
+openvpn_key_org: "tra ltd"
 openvpn_key_ou: "IT Department"
 openvpn_days_valid: "1825"
 openssl_request_subject: "/C={{ openvpn_key_country }}/ST={{ openvpn_key_province }}/L={{ openvpn_key_city }}/O={{ openvpn_key_org }}/OU={{ openvpn_key_ou }}"
@@ -36,7 +36,7 @@ private_networks:
 #- 10.10.30.0
 #- listyour dns names here
 secure_servers:
- - "nexus.dev-cluster.digital.travelex.net"
+ - "nexus.dev-cluster.digital.traex.net"
 
 # Please mentioned the clients' name at this location
 openvpn_clients:
