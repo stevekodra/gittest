@@ -36,7 +36,7 @@ private_networks:
 #- 10.10.30.0
 #- listyour dns names here as showing below... e.g. if you wish to list DNS names example.com type it below
 secure_servers:
- - "jenkins.dev-cluster.digital.travelex.net"
+ - "jenkins.companyname.net"
 
 # Enter below  a lost of config client names - e.g. Thomas Cook - ThomasC - this will generate a config file for ThomasC under /etc/openvpn location
 openvpn_clients:
